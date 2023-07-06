@@ -25,15 +25,18 @@ def canUnlockAll(boxes):
     as a parameter can be unlocked, using keys procured from prior unlocked
     boxes."""
 
+
     # initially  no boxes
-    if boxes == [] or boxes == [[]]:
-        return False
+    if boxes == [] or boxes == [[]] or boxes = "":
+        return True
+
 
     # type hinting - function takes list, returns boolean
 
     # initialising variables
     num_unlocked_boxes = 1
     list_of_keys = []  # list of keys starts off empty
+
     list_of_unlocked_boxes = []
 
     list_of_keys.extend(boxes[0])  # first box is unlocked
