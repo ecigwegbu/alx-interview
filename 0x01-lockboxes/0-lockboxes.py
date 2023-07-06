@@ -24,13 +24,6 @@ def canUnlockAll(boxes):
     """A function which determines whether the boxes within the list passed
     as a parameter can be unlocked, using keys procured from prior unlocked
     boxes."""
-
-
-    # initially  no boxes
-    if boxes == [] or boxes == [[]] or boxes = "":
-        return True
-
-
     # type hinting - function takes list, returns boolean
 
     # initialising variables
