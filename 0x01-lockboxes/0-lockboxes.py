@@ -54,10 +54,6 @@ def canUnlockAll(boxes: list) -> bool:
                     # box cannot be unlocked
                     return False
 
-            print(f"num unlocked boxes: {num_unlocked_boxes}")
-            print(f"keys: {list_of_keys}")
-            print(f"unlocked boxes: {list_of_unlocked_boxes}\n")
-
         if num_unlocked_boxes == len(boxes):
             # all boxes have been unlocked
             return True
