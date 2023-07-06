@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """Lock-boxes.
 
 You have n number of locked boxes in front of you.
