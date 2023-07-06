@@ -19,7 +19,8 @@ TODO: Write function def can_unlock_all(boxes)
 """
 
 
-def canUnlockAll(boxes: list) -> bool:
+# def canUnlockAll(boxes: list) -> bool:
+def canUnlockAll(boxes):
     """A function which determines whether the boxes within the list passed
     as a parameter can be unlocked, using keys procured from prior unlocked
     boxes."""
