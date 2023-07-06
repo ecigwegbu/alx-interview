@@ -27,7 +27,7 @@ def canUnlockAll(boxes):
 
     # initially  no boxes
     if boxes == [] or boxes == [[]]:
-        return True
+        return False
 
     # type hinting - function takes list, returns boolean
 
