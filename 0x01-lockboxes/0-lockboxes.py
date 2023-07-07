@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """Lock-boxes.
 
 You have n number of locked boxes in front of you.
@@ -24,38 +23,34 @@ def canUnlockAll(boxes):
     """A function which determines whether the boxes within the list passed
     as a parameter can be unlocked, using keys procured from prior unlocked
     boxes."""
-    # type hinting - function takes list, returns boolean
 
-    # initialising variables
-    num_unlocked_boxes = 1
-    list_of_keys = []  # list of keys starts off empty
+    # prelim argument check
+    if not type(boxes) == list:
+        exit(98)
+    if boxes == []:
+        return True
 
-    list_of_unlocked_boxes = []
+    # init list of locked boxes:
+    boxKeys = []
+    keyIndex = 0
+    boxKeys += boxes[keyIndex]
+    openBoxes = [0]
 
-    list_of_keys.extend(boxes[0])  # first box is unlocked
-    list_of_unlocked_boxes.extend([boxes[0]])  # first box is unlocked
+    found = True  # True if a box key is found in the box of keys in a round
+    while len(openBoxes) != len(boxes) and (found is True):
+        found = False  # reset for the round
+        for key in range(len(boxes)):  # loop over all boxes
+            # search for matching key for box:
+            if key in openBoxes:
+                continue  # found before, so skip
+            if key in boxKeys:
+                boxKeys += boxes[key]  # update list of available keys
+                openBoxes.append(key)  # update list of opened boxes
+                found = True  # key forund in this round
+                break  # start over
+        if found is False:  # ie we have a round in which no key is found
+            return False
+    if len(openBoxes) == len(boxes):  # ie we opened all boxes
+        return True
 
-    box_nums = []
-
-    while num_unlocked_boxes <= len(boxes):
-
-        for box_num, box in enumerate(boxes):
-            if box_num in list_of_keys:
-                # key can be used to unlock box
-                # add new keys from newly unlocked box to list of keys
-                list_of_keys.extend(boxes[box_num])
-                list_of_keys.sort()
-                list_of_keys = list(set(list_of_keys))
-                if box not in list_of_unlocked_boxes:
-                    # update number and list of unlocked boxes
-                    num_unlocked_boxes += 1
-                    list_of_unlocked_boxes.append(box)
-
-            for key in box:
-                if key == box_num and key not in list_of_keys:
-                    # box cannot be unlocked
-                    return False
-
-        if num_unlocked_boxes == len(boxes):
-            # all boxes have been unlocked
-            return True
+    return False
