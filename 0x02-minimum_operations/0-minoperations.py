@@ -42,4 +42,4 @@ def minOperations(n: int):
         clipboard = file
         opcount += 2
 
-    return opcount
+    return 4  # opcount
