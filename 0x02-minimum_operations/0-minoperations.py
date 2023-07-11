@@ -26,10 +26,10 @@ def minOperations(n: int) -> int:
     and paste are the only allowed operations."""
 
     # Initialise operation: copy all
-    n = n           # target number of characters in the file
-    opcount = 1     # number of operations so far
-    clipboard = 1   # number of characters in the clipboard
-    file = 1        # number of characters in the file
+    # n = n             # target number of characters in the file
+    opcount: int = 1    # number of operations so far
+    clipboard: int = 1  # number of characters in the clipboard
+    file: int = 1       # number of characters in the file
 
     #  while True  # loop until a breakout due to target reached
     while (n % (file + clipboard) != 0) and (file < clipboard):
