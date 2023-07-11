@@ -20,16 +20,16 @@ Number of operations: 6
 """
 
 
-def minOperations(n: int) -> int:
+def minOperations(n: int):
     """ Determine the minimum number of operations to create n times char
     H in a file, starting with a single H, and given that only copy ALL
     and paste are the only allowed operations."""
 
     # Initialise operation: copy all
     # n = n             # target number of characters in the file
-    opcount: int = 1    # number of operations so far
-    clipboard: int = 1  # number of characters in the clipboard
-    file: int = 1       # number of characters in the file
+    opcount = 1    # number of operations so far
+    clipboard = 1  # number of characters in the clipboard
+    file = 1       # number of characters in the file
 
     #  while True  # loop until a breakout due to target reached
     while (n % (file + clipboard) != 0) and (file < clipboard):
