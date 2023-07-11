@@ -31,15 +31,24 @@ def minOperations(n: int):
     clipboard = 1  # number of characters in the clipboard
     file = 1       # number of characters in the file
 
-    #  while True  # loop until a breakout due to target reached
-    while (n % (file + clipboard) != 0) and (file < clipboard):
-        # paste
-        file += clipboard
-        opcount += 1
-    if (file < clipboard):
-        # paste and copy all
-        file += clipboard
-        clipboard = file
-        opcount += 2
+    # while True  # loop until a breakout due to target reached
+    # print('B4 Loop: opcount:', opcount, ' clip:', clipboard, ' file:', file,
+    # '  n:', n)
+    while True:
+        while (n % (file + clipboard) != 0) and (file < n):
+            # paste
+            file += clipboard
+            opcount += 1
+            # print('while Loop: opcount:', opcount, ' clip:', clipboard,
+            # ' file:', file, '  n:', n)
+        if (file < n):
+            # paste and copy all
+            file += clipboard
+            clipboard = file
+            opcount += 2
+            # print('If Clause: opcount:', opcount, ' clip:', clipboard,
+            # ' file:', file, '  n:', n)
+        else:
+            break
 
-    return 4  # opcount
+    return opcount - 1
