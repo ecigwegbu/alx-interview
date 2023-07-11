@@ -20,35 +20,28 @@ Number of operations: 6
 """
 
 
-def minOperations(n: int):
+def minOperations(n):
     """ Determine the minimum number of operations to create n times char
     H in a file, starting with a single H, and given that only copy ALL
     and paste are the only allowed operations."""
 
     # Initialise operation: copy all
-    # n = n             # target number of characters in the file
     opcount = 1    # number of operations so far
     clipboard = 1  # number of characters in the clipboard
     file = 1       # number of characters in the file
 
-    # while True  # loop until a breakout due to target reached
-    # print('B4 Loop: opcount:', opcount, ' clip:', clipboard, ' file:', file,
-    # '  n:', n)
-    while True:
+    while True:  # loop indefinitely until target reached, and then break
         while (n % (file + clipboard) != 0) and (file < n):
             # paste
             file += clipboard
             opcount += 1
-            # print('while Loop: opcount:', opcount, ' clip:', clipboard,
-            # ' file:', file, '  n:', n)
         if (file < n):
             # paste and copy all
             file += clipboard
             clipboard = file
             opcount += 2
-            # print('If Clause: opcount:', opcount, ' clip:', clipboard,
-            # ' file:', file, '  n:', n)
-        else:
+        else:  # target reached so need to break out
+            opcount -= 1  # tgt reached, undo last unnecessary copy, & break
             break
 
-    return opcount - 1
+    return opcount
