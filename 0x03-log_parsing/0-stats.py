@@ -8,12 +8,12 @@ import shlex
 from time import sleep
 
 
-def process_output(total_size, result):
+def process_output(total_size, status_codes, result):
     """Prints an output header and the result document"""
     print("File size: {}".format(total_size), flush=True)
-    for code, count in result.items():
-        if count:
-            print("{}: {}".format(code, count), flush=True)
+    for code in status_codes:
+        if result[code]:
+            print("{}: {}".format(code, result[code]), flush=True)
 
 
 def process_line(line, total_size, status_codes, result):
@@ -64,12 +64,12 @@ def main():
                 process_line(line, total_size, status_codes, result)
                 lines += 1
         except KeyboardInterrupt:
-            process_output(total_size, result)
+            process_output(total_size, status_codes, result)
             print(flush=True)
             exit(0)
         except EOFError:
             continue
-        process_output(total_size, result)
+        process_output(total_size, status_codes, result)
 
 
 if __name__ == "__main__":
