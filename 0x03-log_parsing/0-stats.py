@@ -27,17 +27,22 @@ def process_line(line, status_codes, result):
     if not line:
         return
     tokens = shlex.split(line)
+
+    # check code
     try:
         code = tokens[-2]
-        file_size = tokens[-1]
         assert code in status_codes
-        file_size = int(file_size)
+        result[code] += 1
     except Exception:
-        return
-    result[code] += 1
-    total_size += file_size
-    # print("Code: ", code, "\tfile_size: ", file_size, "\ttotal size:",
-    # total_size)
+        pass
+
+    # check file_size
+    try:
+        file_size = tokens[-1]
+        file_size = int(file_size)
+        total_size += file_size
+    except Exception:
+        pass
 
 
 def print_line_tokens(line):
