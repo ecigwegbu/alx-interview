@@ -16,7 +16,7 @@ def process_output(status_codes, result):
     for code in status_codes:
         if result[code]:
             sys.stdout.write("{}: {}\n".format(code, result[code]))
-    sys.stdout.flush()
+    # sys.stdout.flush()
 
 
 def process_line(line, status_codes, result):
@@ -57,20 +57,21 @@ def main():
     status_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
     result = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0, "404": 0,
               "405": 0, "500": 0}
-    lines = 0
 
-    try:
-        while True:
-            for line in sys.stdin:
+    while True:
+        lines = 0
+        try:
+            while lines < 10:
+                line = input()
                 process_line(line, status_codes, result)
                 lines += 1
-                if lines % 10 == 0:
-                    process_output(status_codes, result)
-    except KeyboardInterrupt:
+        except KeyboardInterrupt:
+            sys.stdout.flush()
+            process_output(status_codes, result)
+            exit(0)
+        except EOFError:
+            continue
         process_output(status_codes, result)
-        sys.stdout.flush()
-    except EOFError:
-        pass
 
 
 if __name__ == "__main__":
