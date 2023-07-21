@@ -60,21 +60,21 @@ def main():
     lines = 1
 
     try:
-        while True:
-            for line in sys.stdin:
-                # sys.stdout.write("Line {}: {}".format(lines, line))
-                process_line(line, status_codes, result)
-                if lines % 10 == 0:
-                    # sys.stdout.write("Num of lines: {}\n".format(lines))
-                    process_output(status_codes, result)
-                lines += 1
+        # while True or EOF:
+        for line in sys.stdin:
+            # sys.stdout.write("Line {}: {}".format(lines, line))
+            process_line(line, status_codes, result)
+            if lines % 10 == 0:
+                # sys.stdout.write("Num of lines: {}\n".format(lines))
+                process_output(status_codes, result)
+            lines += 1
     except KeyboardInterrupt:
-        sys.stdout.flush()
+        #  sys.stdout.flush()
         process_output(status_codes, result)
-        sys.stdout.flush()
+        #  sys.stdout.flush()
         raise
-    except EOFError:
-        pass
+    #  except EOFError:
+    #      pass
 
 
 if __name__ == "__main__":
