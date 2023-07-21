@@ -5,20 +5,23 @@ computes metrics
 """
 from datetime import datetime
 import shlex
-from time import sleep
+import sys
+total_size = 0
 
 
-def process_output(total_size, status_codes, result):
+def process_output(status_codes, result):
     """Prints an output header and the result document"""
-    print("File size: {}".format(total_size), flush=True)
+    global total_size
+    sys.stdout.write("File size: {}\n".format(total_size))
     for code in status_codes:
         if result[code]:
-            print("{}: {}".format(code, result[code]), flush=True)
+            sys.stdout.write("{}: {}\n".format(code, result[code]))
+    # sys.stdout.flush()
 
 
-def process_line(line, total_size, status_codes, result):
+def process_line(line, status_codes, result):
     """Check if line is valid; if it is parse and populate result document"""
-    # global total_size
+    global total_size
     # print("processing line...")
     # print_line_tokens(line)
     if not line:
@@ -30,7 +33,6 @@ def process_line(line, total_size, status_codes, result):
         assert code in status_codes
         file_size = int(file_size)
     except Exception:
-        print("minor exception $$$$$$$$$$$$$$")
         return
     result[code] += 1
     total_size += file_size
@@ -51,7 +53,7 @@ def print_line_tokens(line):
 def main():
     """Entry point for program"""
     # initialise variables:
-    total_size = 0
+    global total_size
     status_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
     result = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0, "404": 0,
               "405": 0, "500": 0}
@@ -61,15 +63,15 @@ def main():
         try:
             while lines < 10:
                 line = input()
-                process_line(line, total_size, status_codes, result)
+                process_line(line, status_codes, result)
                 lines += 1
         except KeyboardInterrupt:
-            process_output(total_size, status_codes, result)
-            print(flush=True)
+            sys.stdout.flush()
+            process_output(status_codes, result)
             exit(0)
         except EOFError:
             continue
-        process_output(total_size, status_codes, result)
+        process_output(status_codes, result)
 
 
 if __name__ == "__main__":
