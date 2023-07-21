@@ -72,6 +72,7 @@ def main():
         sys.stdout.flush()
         process_output(status_codes, result)
         sys.stdout.flush()
+        raise
     except EOFError:
         pass
 
