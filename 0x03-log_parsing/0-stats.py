@@ -57,16 +57,19 @@ def main():
     status_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
     result = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0, "404": 0,
               "405": 0, "500": 0}
-    lines = 0
+    lines = 1
 
     try:
         while True:
             for line in sys.stdin:
+                # sys.stdout.write("Line {}: {}".format(lines, line))
                 process_line(line, status_codes, result)
-                lines += 1
                 if lines % 10 == 0:
+                    # sys.stdout.write("Num of lines: {}\n".format(lines))
                     process_output(status_codes, result)
+                lines += 1
     except KeyboardInterrupt:
+        sys.stdout.flush()
         process_output(status_codes, result)
         sys.stdout.flush()
     except EOFError:
