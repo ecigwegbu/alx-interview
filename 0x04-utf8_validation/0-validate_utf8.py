@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """0.UTF-8 Validation"""
-import math
 
 
 def validUTF8(data):
