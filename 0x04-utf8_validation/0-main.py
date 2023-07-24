@@ -13,3 +13,15 @@ print(validUTF8(data))
 
 data = [229, 65, 127, 256]
 print(validUTF8(data))
+
+data = [0b11110000, 0b10010101, 0b10011010, 0b10011010]
+print(validUTF8(data))
+
+data = [0b11110000, 0b10010101, 0b10011010, 0b00011010]
+print(validUTF8(data))
+
+data = []
+print(validUTF8(data))
+
+data = [0]
+print(validUTF8(data))

@@ -1,0 +1,6 @@
+*.tmp
+temp
+v0
+*.v*
+nod_modules
+.*.swp
