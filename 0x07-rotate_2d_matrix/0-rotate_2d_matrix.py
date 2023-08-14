@@ -12,7 +12,7 @@ def rotate_2d_matrix(matrix: List[List[Any]]) -> None:
     try:
         n = len(matrix)  # n == size_of_matrix
         for i in range(n):
-            assert len(matrix[i]) == n
+            assert type(matrix[i]) == list and len(matrix[i]) == n
     except Exception:
         print("Matrix must be an n x n matrix.")
         return
