@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """Rotate 2D Matrix in-place 90-degrees clockwise.
 """
-from typing import List, Any
 
 
-def rotate_2d_matrix(matrix: List[List[Any]]) -> None:
+def rotate_2d_matrix(matrix: list[list]) -> None:
     """Rotate an n x n 2D matrix of by 90 degrees, in-in place
        and Return nothing
     """
