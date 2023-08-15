@@ -3,7 +3,7 @@
 """
 
 
-def rotate_2d_matrix(matrix: list[list]) -> None:
+def rotate_2d_matrix(matrix):
     """Rotate an n x n 2D matrix of by 90 degrees, in-in place
        and Return nothing
     """
