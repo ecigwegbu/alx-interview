@@ -1,0 +1,6 @@
+*.v*
+temp
+node_modules
+v0
+.vscode
+*.bak
