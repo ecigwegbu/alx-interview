@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Prime Game. This code determines most winner or loser who cant make a move
+"""Prime Game. This code
 """
 
 
@@ -16,9 +16,6 @@ def isWinner(x, nums):
         #  raise
         return None
 
-    if len(nums) > 10000 or x > 10000:
-        return "Maria"
-
     def is_prime(n):
         """Helper function 1
         """
@@ -29,13 +26,10 @@ def isWinner(x, nums):
                 return False
         return True
 
-    def play_round(n):
+    def game(n):
         """Helper function to determine who wins the round.
         If n is 1, Ben wins automatically since Maria cannot make the move
         """
-        if (n > 10000):
-            return "Maria"
-
         primes = [i for i in range(1, n + 1) if is_prime(i)]
         non_primes = [i for i in range(1, n + 1) if not is_prime(i)]
 
@@ -55,7 +49,7 @@ def isWinner(x, nums):
     bens = 0
 
     for n in nums:
-        winner = play_round(n)
+        winner = game(n)
         if winner == "Maria":
             marias += 1
         else:
@@ -70,4 +64,4 @@ def isWinner(x, nums):
 
 
 if __name__ == "--main__":
-    pass
+    print("Winner:", isWinner(3, [4, 5, 1]))  # "Ben"
