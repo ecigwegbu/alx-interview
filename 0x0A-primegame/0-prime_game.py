@@ -58,10 +58,8 @@ def isWinner(x, nums):
 
     if marias > bens:
         return "Maria"
-    elif bens > marias:
+    elif bens >= marias:
         return "Ben"
-    else:
-        return None
 
 
 if __name__ == "--main__":
