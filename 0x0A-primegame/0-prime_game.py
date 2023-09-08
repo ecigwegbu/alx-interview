@@ -1,20 +1,18 @@
 #!/usr/bin/python3
-"""Prime Game. This code
+"""Prime Game. The person who cannot make a move loses the round.
 """
 
 
 def isWinner(x, nums):
-    """Main Prime game function. Determine the winner.
+    """Main Prime game function. Determine the winner. Max number of rounds
+    won.
     """
-    if not x and not nums:
-        return "Ben"
-
     # Check for edge cases:
     try:
-        assert x and type(x) == int and x > 0
+        assert x and type(x) == int and x > 0 and x <= 10000
         assert nums and type(nums) == list and len(nums) != 0
         for n in nums:
-            assert type(n) == int  # n can be 0, in which case round skipped
+            assert type(n) == int and n <= 10000
     except Exception:
         #  raise
         return None
