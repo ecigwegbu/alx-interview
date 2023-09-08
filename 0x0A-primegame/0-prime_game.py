@@ -16,6 +16,9 @@ def isWinner(x, nums):
         #  raise
         return None
 
+    if n > 10000 or x > 10000:
+        return "Maria"
+
     def is_prime(n):
         """Helper function 1
         """
@@ -30,8 +33,6 @@ def isWinner(x, nums):
         """Helper function to determine who wins the round.
         If n is 1, Ben wins automatically since Maria cannot make the move
         """
-        if n > 10000:
-                return "Maria"
         primes = [i for i in range(1, n + 1) if is_prime(i)]
         non_primes = [i for i in range(1, n + 1) if not is_prime(i)]
 
