@@ -11,7 +11,7 @@ def isWinner(x, nums):
         assert x and type(x) == int and x > 0
         assert nums and type(nums) == list and len(nums) != 0
         for n in nums:
-            assert type(n) == int and n > 0
+            assert type(n) == int  # n can be 0, in which case round skipped
     except Exception:
         #  raise
         return None
