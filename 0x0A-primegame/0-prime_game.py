@@ -12,8 +12,6 @@ def isWinner(x, nums):
         assert nums and type(nums) == list and len(nums) != 0
         for n in nums:
             assert type(n) == int  # n can be 0, in which case round skipped
-            if n >= 10000:
-                return "Maria"
     except Exception:
         #  raise
         return None
@@ -32,6 +30,8 @@ def isWinner(x, nums):
         """Helper function to determine who wins the round.
         If n is 1, Ben wins automatically since Maria cannot make the move
         """
+        if n >= 10000:
+                return "Maria"
         primes = [i for i in range(1, n + 1) if is_prime(i)]
         non_primes = [i for i in range(1, n + 1) if not is_prime(i)]
 
