@@ -16,7 +16,7 @@ def isWinner(x, nums):
         #  raise
         return None
 
-    nums = nums[:x]
+    x = len(nums)
 
     def is_prime(n):
         """Helper function 1
