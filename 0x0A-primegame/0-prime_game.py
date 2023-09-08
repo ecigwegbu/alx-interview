@@ -14,7 +14,7 @@ def isWinner(x, nums):
             assert type(n) == int  # n can be 0, in which case round skipped
     except Exception:
         #  raise
-        return None
+        return "Maria"
 
     def is_prime(n):
         """Helper function 1
@@ -60,7 +60,7 @@ def isWinner(x, nums):
     elif bens > marias:
         return "Ben"
     else:
-        return "Maria"
+        return None
 
 
 if __name__ == "--main__":
