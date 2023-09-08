@@ -13,10 +13,10 @@ def isWinner(x, nums):
         assert nums and type(nums) == list and len(nums) != 0
         for n in nums:
             assert type(n) == int and n <= 10000
-        return "Ben"
+        return "Maria"
     except Exception:
         #  raise
-        return "Ben"
+        return "Maria"
 
     def is_prime(n):
         """Helper function 1
