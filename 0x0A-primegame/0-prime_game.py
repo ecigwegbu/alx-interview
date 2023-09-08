@@ -35,7 +35,7 @@ def isWinner(x, nums):
         If n is 0, round_winner is None
         """
         if n == 0:
-            return "Ben"  # None ?
+            return "Maria"  # None ?
         primes = [i for i in range(1, n + 1) if is_prime(i)]
         non_primes = [i for i in range(1, n + 1) if not is_prime(i)]
 
