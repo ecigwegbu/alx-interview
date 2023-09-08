@@ -6,6 +6,9 @@
 def isWinner(x, nums):
     """Main Prime game function. Determine the winner.
     """
+    if not x and not nums:
+        return "Ben"
+
     # Check for edge cases:
     try:
         assert x and type(x) == int and x > 0
@@ -15,8 +18,6 @@ def isWinner(x, nums):
     except Exception:
         #  raise
         return None
-
-    nums = nums[-x:]  # clip nums to x items only
 
     def is_prime(n):
         """Helper function 1
