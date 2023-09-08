@@ -16,7 +16,7 @@ def isWinner(x, nums):
         #  raise
         return None
 
-    nums = nums[:x]  # clip nums to x items only
+    nums = nums[-x:]  # clip nums to x items only
 
     def is_prime(n):
         """Helper function 1
