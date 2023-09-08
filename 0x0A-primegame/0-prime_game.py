@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Prime Game. This code
+"""Prime Game. This code determines most winner or loser who cant make a move
 """
 
 
@@ -14,7 +14,7 @@ def isWinner(x, nums):
             assert type(n) == int  # n can be 0, in which case round skipped
     except Exception:
         #  raise
-        return "Maria"
+        return None
 
     def is_prime(n):
         """Helper function 1
@@ -61,7 +61,3 @@ def isWinner(x, nums):
         return "Ben"
     else:
         return None
-
-
-if __name__ == "--main__":
-    print("Winner:", isWinner(3, [4, 5, 1]))  # "Ben"
