@@ -17,7 +17,7 @@ def isWinner(x, nums):
         return None
 
     if x == 0:
-        return "Ben"
+        return "None"
 
     def is_prime(n):
         """Helper function 1
