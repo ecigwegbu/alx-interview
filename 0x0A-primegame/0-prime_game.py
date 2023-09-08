@@ -6,7 +6,7 @@
 def isWinner(x, nums):
     """Main Prime game function. Determine the winner.
     """
-    if not x or not nums:
+    if not x and not nums:
         return "Ben"
 
     # Check for edge cases:
