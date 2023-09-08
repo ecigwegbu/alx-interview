@@ -8,16 +8,15 @@ def isWinner(x, nums):
     """
     # Check for edge cases:
     try:
-        assert type(x) == int
-        assert nums and type(nums) == list and len(nums) == x
+        assert x and type(x) == int and x > 0
+        assert nums and type(nums) == list and len(nums) != 0
         for n in nums:
             assert type(n) == int  # n can be 0, in which case round skipped
     except Exception:
         #  raise
         return None
 
-    if x == 0:
-        return "None"
+    nums = nums[:x]
 
     def is_prime(n):
         """Helper function 1
@@ -32,10 +31,7 @@ def isWinner(x, nums):
     def play_round(n):
         """Helper function to determine who wins the round.
         If n is 1, Ben wins automatically since Maria cannot make the move
-        If n is 0, round_winner is None
         """
-        if n == 0:
-            return "Maria"  # None ?
         primes = [i for i in range(1, n + 1) if is_prime(i)]
         non_primes = [i for i in range(1, n + 1) if not is_prime(i)]
 
@@ -58,7 +54,7 @@ def isWinner(x, nums):
         winner = play_round(n)
         if winner == "Maria":
             marias += 1
-        elif winner == "Ben":
+        else:
             bens += 1
 
     if marias > bens:
