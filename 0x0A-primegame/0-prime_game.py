@@ -9,10 +9,10 @@ def isWinner(x, nums):
     """
     # Check for edge cases:
     try:
-        assert type(x) == int and x >= 1 and x <= 10000
-        assert type(nums) == list
+        assert x and type(x) == int and x > 0 and x <= 10000
+        assert nums and type(nums) == list and len(nums) != 0
         for n in nums:
-            assert type(n) == int and n >= 1 n <= 10000
+            assert type(n) == int and n <= 10000
     except Exception:
         #  raise
         return None
