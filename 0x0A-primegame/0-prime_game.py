@@ -8,13 +8,16 @@ def isWinner(x, nums):
     """
     # Check for edge cases:
     try:
-        assert x and type(x) == int and x > 0
+        assert type(x) == int
         assert nums and type(nums) == list and len(nums) == x
         for n in nums:
             assert type(n) == int  # n can be 0, in which case round skipped
     except Exception:
         #  raise
         return None
+
+    if x == 0:
+        return "Ben"
 
     def is_prime(n):
         """Helper function 1
