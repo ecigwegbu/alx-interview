@@ -7,9 +7,6 @@ def isWinner(x, nums):
     """Main Prime game function. Determine the winner. Max number of rounds
     won.
     """
-    if x == 0 and nums == []:
-        return "Ben"
-
     # Check for edge cases:
     try:
         assert x and type(x) == int and x > 0 and x <= 10000
@@ -18,6 +15,9 @@ def isWinner(x, nums):
             assert type(n) == int and n <= 10000
     except Exception:
         #  raise
+        return None
+
+    if x != 0 and len(nums):
         return None
 
     def is_prime(n):
