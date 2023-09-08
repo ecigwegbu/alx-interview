@@ -12,6 +12,8 @@ def isWinner(x, nums):
         assert nums and type(nums) == list and len(nums) != 0
         for n in nums:
             assert type(n) == int  # n can be 0, in which case round skipped
+            if n >= 10000:
+                return "Maria"
     except Exception:
         #  raise
         return None
@@ -61,3 +63,7 @@ def isWinner(x, nums):
         return "Ben"
     else:
         return None
+
+
+if __name__ == "--main__":
+    pass
