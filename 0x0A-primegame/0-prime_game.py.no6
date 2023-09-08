@@ -26,7 +26,7 @@ def isWinner(x, nums):
                 return False
         return True
 
-    def play_round(n):
+    def game(n):
         """Helper function to determine who wins the round.
         If n is 1, Ben wins automatically since Maria cannot make the move
         """
@@ -49,7 +49,7 @@ def isWinner(x, nums):
     bens = 0
 
     for n in nums:
-        winner = play_round(n)
+        winner = game(n)
         if winner == "Maria":
             marias += 1
         else:
