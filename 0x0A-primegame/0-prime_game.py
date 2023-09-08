@@ -17,7 +17,7 @@ def isWinner(x, nums):
         #  raise
         return None
 
-    if x != 0 and len(nums):
+    if x != len(nums):
         return None
 
     def is_prime(n):
